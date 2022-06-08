@@ -1087,7 +1087,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_185387) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "backorderable", default: false
     t.datetime "deleted_at"
-    t.index "stock_location_id, variant_id, COALESCE(deleted_at, '1970-01-01 00:00:00'::timestamp without time zone)", name: "stock_item_by_loc_var_id_deleted_at", unique: true
+    t.index "stock_location_id, variant_id, (COALESCE(deleted_at, '1970-01-01 00:00:00'::timestamp without time zone))", name: "stock_item_by_loc_var_id_deleted_at", unique: true
     t.index ["backorderable"], name: "index_spree_stock_items_on_backorderable"
     t.index ["deleted_at"], name: "index_spree_stock_items_on_deleted_at"
     t.index ["stock_location_id", "variant_id"], name: "stock_item_by_loc_and_var_id"
